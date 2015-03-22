@@ -1,0 +1,55 @@
+---
+title       : Discover the central limit theorem
+subtitle    : An interactive shiny app 
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+### Introduction
+
+The central limit theorem (CLT) is an important concept in statistics. It states that for independent and identically distributed (idd) random variables, the arithmetic mean of a sufficiently large number of these variables will be approximately normally distributed regardless of the underlying distribution the variables were sampled from. 
+
+Consider a random sample of size $n$ with observations $(X_1,X_2,...,X_n)$ sampled from a distribution with well defined mean $\mu$ and standard deviation $\sigma$. Then the sample mean is given by
+$$M_n=\frac{1}{n}\sum_{i=1}^{n} X_i $$
+If this process is repeated many time, the sample means will follow a normal distribution with a standard score
+$$Z_n=\frac{M_n-\mu}{\sigma/\sqrt{n}}$$
+
+--- .class #id
+### How does the app work?
+This shiny app allows to discover the CLT through experimentation. 
+#### 1. Select a source distribution
+
+First you select your source distribution from a drop down list. You can choose between four different distributions:
+
+1. [Normal] (http://en.wikipedia.org/wiki/Normal_distribution)
+2. [Exponential] (http://en.wikipedia.org/wiki/Normal_distribution)
+3. [Uniform] (http://en.wikipedia.org/wiki/Uniform_distribution_%28continuous%29)
+4. [Binomial] (http://en.wikipedia.org/wiki/Binomial_distribution)
+
+For each of these distributions you can adjust parameters to change the shape of the distribution. For details on the parameters, refer to the wikipedia links above.  
+
+--- .class #id
+### How does the app work?
+#### 2. Adjust the sampling experiment
+
+Then adjust the number of observations in each sample $n$ using the slider. The app will immediately calculate the arithmetic mean and plot the Z-score in a histogram. However, this Z-score is normalized according to
+$$Z_n=\frac{M_n-\mu}{\sigma/\sqrt{n}}$$
+This allows the experimenter to see the histogram getting more concentrated around the mean $\mu$ with increasing values of $n$.
+
+The sampling process can be repeated a number of times as selected by the second slider to obtain a histogram of the standardized sample means. 
+
+--- .class #id
+### How does the app work?
+#### 3. Check for normality
+The normal quantile-quantile plot of the sample means allows to judge the normality of the distribution of sample means. Normally distributed values are expected to follow a straight line. This example plots 1000 iid from a normal distribution with $\mu=0$ and $\sigma=1$.
+```{r fig.height=4,fig.align='center'}
+qqnorm(rnorm(1000,0,1))
+```
+
+
+

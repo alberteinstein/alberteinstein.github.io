@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discover the central limit theorem</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Discover the central limit theorem">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Discover the central limit theorem</h1>
+    <h2>An interactive shiny app</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h3>Introduction</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>The central limit theorem (CLT) is an important concept in statistics. It states that for independent and identically distributed (idd) random variables, the arithmetic mean of a sufficiently large number of these variables will be approximately normally distributed regardless of the underlying distribution the variables were sampled from. </p>
+
+<p>Consider a random sample of size \(n\) with observations \((X_1,X_2,...,X_n)\) sampled from a distribution with well defined mean \(\mu\) and standard deviation \(\sigma\). Then the sample mean is given by
+\[M_n=\frac{1}{n}\sum_{i=1}^{n} X_i \]
+If this process is repeated many time, the sample means will follow a normal distribution with a standard score
+\[Z_n=\frac{M_n-\mu}{\sigma/\sqrt{n}}\]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>How does the app work?</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>This shiny app allows to discover the CLT through experimentation. </p>
+
+<h4>1. Select a source distribution</h4>
+
+<p>First you select your source distribution from a drop down list. You can choose between four different distributions:</p>
+
+<ol>
+<li><a href="http://en.wikipedia.org/wiki/Normal_distribution">Normal</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Normal_distribution">Exponential</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Uniform_distribution_%28continuous%29">Uniform</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Binomial_distribution">Binomial</a></li>
+</ol>
+
+<p>For each of these distributions you can adjust parameters to change the shape of the distribution. For details on the parameters, refer to the wikipedia links above.  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>How does the app work?</h3>
+  </hgroup>
+  <article data-timings="">
+    <h4>2. Adjust the sampling experiment</h4>
+
+<p>Then adjust the number of observations in each sample \(n\) using the slider. The app will immediately calculate the arithmetic mean and plot the Z-score in a histogram. However, this Z-score is normalized according to
+\[Z_n=\frac{M_n-\mu}{\sigma/\sqrt{n}}\]
+This allows the experimenter to see the histogram getting more concentrated around the mean \(\mu\) with increasing values of \(n\).</p>
+
+<p>The sampling process can be repeated a number of times as selected by the second slider to obtain a histogram of the standardized sample means. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>How does the app work?</h3>
+  </hgroup>
+  <article data-timings="">
+    <h4>3. Check for normality</h4>
+
+<p>The normal quantile-quantile plot of the sample means allows to judge the normality of the distribution of sample means. Normally distributed values are expected to follow a straight line. This example plots 1000 iid from a normal distribution with \(\mu=0\) and \(\sigma=1\).</p>
+
+<pre><code class="r">qqnorm(rnorm(1000,0,1))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How does the app work?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How does the app work?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='How does the app work?'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
